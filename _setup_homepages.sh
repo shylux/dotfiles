@@ -5,6 +5,7 @@ wget https://github.com/github/git-lfs/releases/download/v1.0.0/git-lfs-linux-am
 tar -zxvf git-lfs-linux-amd64-1.0.0.tar.gz
 cd git-lfs-1.0.0
 ./install.sh
+cd ..
 rm -r git-lfs-1.0.0 git-lfs-linux-amd64-1.0.0.tar.gz
 
 # install / configure lighty
@@ -18,6 +19,7 @@ cp lighttpd.conf /etc/lighttpd/lighttpd.conf
 
 mkdir -p /var/log/lighttpd/atelierzoef.ch
 mkdir -p /var/log/lighttpd/shylux.ch
+chown www-data:www-data -R /var/log/lighttpd
 
 git clone -b master --recursive git@github.com:shylux/homepage.git /var/www/shylux.ch
 git clone -b atelierzoef git@github.com:shylux/homepage.git /var/www/atelierzoef.ch
